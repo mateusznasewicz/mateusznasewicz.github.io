@@ -4,7 +4,7 @@ import { PortfolioComponent } from './portfolio/portfolio';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, PortfolioComponent],
+  imports: [PortfolioComponent],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
