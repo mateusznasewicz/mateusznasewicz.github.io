@@ -1,59 +1,53 @@
-# PersonalWebsite
+# 🚀 Junior Java Fullstack Developer Portfolio
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.0.2.
+## ✨ Overview
 
-## Development server
+To jest zaawansowane, kinetyczne i głębokie portfolio zaprojektowane, aby zaprezentować moje umiejętności w ekosystemie Java Fullstack. Aplikacja została zbudowana w Angularze i wykorzystuje **GSAP (GreenSock)** do zarządzania immersyjnymi animacjami, kładąc nacisk na czystą architekturę i wyjątkowe doświadczenie użytkownika.
 
-To start a local development server, run:
+### 🌐 Live Demo & Deployment Status
+
+| Status | Szczegóły |
+| :--- | :--- |
+| **Live URL** | [Zobacz Live Portfolio](https://mateusznasewicz.github.io/) |
+| **CI/CD Build** | [![GitHub Actions Workflow Status](https://github.com/mateusznasewicz/mateusznasewicz.github.io/actions/workflows/deploy.yml/badge.svg)](https://github.com/mateusznasewicz/mateusznasewicz.github.io/actions/workflows/deploy.yml) |
+---
+
+## 🌟 Kluczowe Funkcje i Animacje
+
+Projekt jest zoptymalizowany pod kątem wydajności i efektów wizualnych:
+
+* **Kinetic Design:** Układ Dark Mode, zorientowany na głębię, z neonowymi akcentami (blue/purple).
+* **GSAP: Stacked Cards:** Projekty są przypinane (pinned) i przesuwają się sekwencyjnie w górę, odsłaniając kolejny element.
+* **GSAP: Parallax Streams:** Rzędy technologii przesuwają się w przeciwnych kierunkach podczas scrollowania.
+* **GSAP: Curtain Footer Reveal:** Stopka jest płynnie odsłaniana jako "kurtyna" pod główną warstwą treści.
+* **Clean Architecture:** Dedykowana sekcja "Code/IDE" przedstawiająca moją filozofię pisania czystego, architektonicznie solidnego kodu.
+* **Angular Signals:** Wykorzystanie Signals do zarządzania aktualizacjami z GSAP, optymalizujące wydajność i omijające `NgZone`.
+
+## 💻 Tech Stack
+
+| Kategoria | Technologie |
+| :--- | :--- |
+| **Backend Core** | Java 21, Spring Boot, Hibernate, PostgreSQL |
+| **Frontend/UI** | Angular 17, TypeScript, SCSS, GSAP |
+| **DevOps/Tools** | Docker, AWS, Kafka, Git |
+
+## ⚙️ Uruchomienie Lokalnie
+
+### Wymagania
+
+1.  Node.js (LTS version)
+2.  Angular CLI (`npm install -g @angular/cli`)
+
+### Instalacja i Uruchomienie
 
 ```bash
+# 1. Sklonuj repozytorium
+git clone [https://github.com/mateusznasewicz/mateusznasewicz.github.io.git](https://github.com/mateusznasewicz/mateusznasewicz.github.io.git)
+cd mateusznasewicz.github.io
+
+# 2. Zainstaluj zależności
+npm install
+
+# 3. Uruchom serwer developerski
 ng serve
 ```
-
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
