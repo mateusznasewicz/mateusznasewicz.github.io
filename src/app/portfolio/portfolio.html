@@ -1,0 +1,156 @@
+<nav class="side-nav">
+  <ul>
+    <li *ngFor="let item of navItems; let i = index" 
+        [class.active]="activeSectionIndex() === i"
+        (click)="scrollToSection(item.id)">
+      
+      <span class="nav-label">{{item.label}}</span>
+      <span class="nav-dot"></span>
+    
+    </li>
+  </ul>
+</nav>
+
+<div class="main-container" #mainContainer>
+  
+  <section class="hero-section" id="hero">
+    <div class="hero-content">
+      <div class="hero-line"><span>JAVA</span></div>
+      <div class="hero-line"><span class="hollow">FULLSTACK</span></div>
+      <div class="hero-line"><span>DEVELOPER</span></div>
+    </div>
+    <div class="hero-meta">
+      <span class="mono">SCROLL TO BEGIN</span>
+    </div>
+  </section>
+
+  <section class="intro-section" id="about">
+    <div class="container">
+      <p class="highlight-text">
+        I engineer <span class="accent">robust back-end architectures</span> and fuse them with fluid, 
+        kinetic front-end experiences. Building scalable solutions with 
+        Java Spring Boot and modern reactive frameworks.
+      </p>
+    </div>
+  </section>
+
+    <section class="stacked-wrapper" #stackedSection id="projects">
+        <div class="cards-container">
+        
+            <div class="project-card" *ngFor="let p of projects; let i = index">
+            
+                <div class="card-inner">
+                    <div class="card-header">
+                        <span class="mono number">0{{i + 1}}</span>
+                        <span class="mono year">{{p.year}}</span>
+                    </div>
+                    
+                    <div class="card-body">
+                    <div class="text-content">
+                        <h3>{{p.title}}</h3> <p class="role mono">{{p.role}}</p>
+                        <p class="desc">{{p.description}}</p>
+                        <div class="tags">
+                        <span *ngFor="let t of p.techStack" class="tag mono">{{t}}</span>
+                        </div>
+                    </div>
+                    
+                    <div class="visual-content">
+                        <div class="img-placeholder" [style.background]="p.hexColor || '#333'">
+                        {{p.imageUrl}}
+                        </div>
+                    </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <section class="tech-streams-wrapper" id="tech">
+        <div class="container-header">
+            <h2 class="section-title">TECHNOLOGY <span class="hollow">ECOSYSTEM</span></h2>
+        </div>
+
+        <div class="streams-container">
+            <div class="tech-track" *ngFor="let row of techRows; let i = index" [class.reverse]="i % 2 !== 0">
+            
+            <div class="tech-chip" *ngFor="let item of row">
+                <div class="icon-box">
+                <span class="icon-char">{{item.name.charAt(0)}}</span>
+                </div>
+                <span class="tech-name">{{item.name}}</span>
+            </div>
+
+            <div class="tech-chip" *ngFor="let item of row">
+                <div class="icon-box"><span class="icon-char">{{item.name.charAt(0)}}</span></div>
+                <span class="tech-name">{{item.name}}</span>
+            </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="code-section" id="code">
+        <div class="container">
+            
+            <div class="code-grid">
+            
+                <div class="code-text">
+                    <h2 class="section-title">ENGINEERING <span class="hollow">PRECISION</span></h2>
+                    <p>
+                    Pisanie kodu to dla mnie nie tylko funkcjonalność, ale i 
+                    <span class="accent">architektura</span>. Tworzę skalowalne, 
+                    samo-dokumentujące się API w oparciu o zasady REST i Clean Architecture.
+                    </p>
+                    <ul class="code-features mono">
+                    <li>// TDD Approach</li>
+                    <li>// SOLID Principles</li>
+                    <li>// High Performance</li>
+                    </ul>
+                </div>
+
+                <div class="ide-wrapper">
+                    <div class="ide-container">
+                        <div class="ide-header">
+                            <div class="dots">
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
+                            </div>
+                            <span class="filename mono">PortfolioController.java</span>
+                        </div>
+
+<pre class="code-block">
+<code>
+<span class="keyword">@RestController</span>
+<span class="keyword">@RequestMapping</span>(<span class="string">"/api/v1"</span>)
+<span class="keyword">public class</span> <span class="class-name">PortfolioController</span> &#123;
+
+    <span class="annotation">@GetMapping</span>(<span class="string">"/status"</span>)
+    <span class="keyword">public</span> ResponseEntity&lt;String&gt; <span class="function">healthCheck</span>() &#123;
+        <span class="keyword">return</span> ResponseEntity.ok(<span class="string">"SYSTEM_OPTIMAL"</span>);
+    &#125;
+&#125;
+</code>
+</pre>
+                    </div>
+                </div>
+            </div>
+         </div>
+    </section>
+
+  <div class="footer-spacer" id="contact"></div>
+
+</div>
+<footer class="curtain-footer">
+    <div class="footer-content">
+      <h2>LET'S BUILD<br>THE FUTURE</h2>
+      <a href="mailto:hello@dev.com" class="cta-button">INITIATE_CONTACT()</a>
+      <div class="socials mono">
+        <span>GITHUB</span>
+        <span>LINKEDIN</span>
+        <span>TWITTER</span>
+      </div>
+    </div>
+  </footer>
