@@ -3,10 +3,11 @@ import { CommonModule } from '@angular/common';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import ScrollToPlugin from 'gsap/ScrollToPlugin';
+import SplitText from 'gsap/src/SplitText';
 import { Project } from '../models/project';
 import { ProjectDataService } from '../service/project-data';
 
-gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, SplitText);
 
 @Component({
   selector: 'app-portfolio',
@@ -86,15 +87,54 @@ export class PortfolioComponent implements AfterViewInit, OnDestroy, OnInit {
         ease: 'power4.out'
       });
 
-      // 2. INTRO: Text Highlight on Scroll
-      gsap.to('.highlight-text', {
-        backgroundPosition: '0% 50%',
+      // --- 2. INTRO SECTION ANIMATION (Activation & Zoom) ---
+
+      const introTl = gsap.timeline({
+          scrollTrigger: {
+              trigger: '.intro-section',
+              start: 'top 80%',
+              end: 'bottom top',
+              toggleActions: 'play none none reverse',
+          },
+      });
+
+      introTl.from('.intro-text-title', {
+        xPercent: -200,
+        duration: 1,
+        ease: 'power3.out'
+      })
+      .from('.intro-visual .wireframe-model', {
+          scale: 0.6,
+          opacity: 0.2,
+          filter: 'blur(5px)',
+          duration: 1.5,
+          ease: 'power3.out',
+      },"-=0.6")
+
+      gsap.to('.intro-visual .wireframe-model', {
+          y: 150,
+          ease: 'none',
+          scrollTrigger: {
+              trigger: '.intro-section',
+              start: 'top bottom',
+              end: 'bottom top',
+              scrub: 1,
+          }
+      });
+
+      let introTextSplit = new SplitText(".highlight-text", {type:"chars, words"})
+      introTl.from(introTextSplit.chars, {opacity:0, stagger:0.01, duration:0.1}, 0)
+      
+      gsap.to(introTextSplit.words, {
+        '-webkit-text-stroke-color': '#FFFFFF',
+        color: '#FFFFFF', 
+        stagger: 0.1,
         ease: 'none',
         scrollTrigger: {
-          trigger: '.intro-section',
-          start: 'top center',
-          end: 'bottom center',
-          scrub: 1
+            trigger: '.intro-section',
+            start: 'top 60%',
+            end: 'center center',
+            scrub: 1,
         }
       });
 
@@ -121,7 +161,6 @@ export class PortfolioComponent implements AfterViewInit, OnDestroy, OnInit {
         
         stackTl.to(card, {
           yPercent: -120,
-          opacity: 0,
           scale: 0.95,
           duration: 1,
           ease: 'power2.inOut'
@@ -170,6 +209,8 @@ export class PortfolioComponent implements AfterViewInit, OnDestroy, OnInit {
           duration: 0.8,
           ease: 'power3.out'
         }, "-=0.6");
+
+        //navbar
 
         this.navItems.forEach((item, index) => {
           let triggerStart = 'top center';
