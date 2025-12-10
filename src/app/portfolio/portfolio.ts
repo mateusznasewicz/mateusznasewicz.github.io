@@ -132,7 +132,7 @@ export class PortfolioComponent implements AfterViewInit, OnDestroy, OnInit {
         ease: 'none',
         scrollTrigger: {
             trigger: '.intro-section',
-            start: 'top 60%',
+            start: 'top top',
             end: 'center center',
             scrub: 1,
         }
@@ -213,36 +213,16 @@ export class PortfolioComponent implements AfterViewInit, OnDestroy, OnInit {
         //navbar
 
         this.navItems.forEach((item, index) => {
-          let triggerStart = 'top center';
-          
-          if (item.id === 'tech' || item.id === 'code') {
-            triggerStart = 'top 70%';
-          } 
-          
-          if (item.id === 'projects') {
-            ScrollTrigger.create({
-              trigger: `#${item.id}`,
-              start: 'top top', 
-              endTrigger: `#${item.id}`,
-              end: () => `+=${cards.length * 100}%`, 
-              onToggle: (self) => {
-                if (self.isActive) {
-                  this.activeSectionIndex.set(index);
-                }
-              }
-            });
-            return;
-          }
 
           ScrollTrigger.create({
-            trigger: `#${item.id}`,
-            start: triggerStart,
-            end: 'bottom center',
-            onToggle: (self) => {
-              if (self.isActive) {
-                this.activeSectionIndex.set(index);
+              trigger: `#${item.id}`,
+              start: 'top center',
+              end: 'bottom center',
+              onToggle: (self) => {
+                  if (self.isActive) {
+                      this.activeSectionIndex.set(index);
+                  }
               }
-            }
           });
         });
           }, this.mainContainer);
@@ -256,17 +236,10 @@ export class PortfolioComponent implements AfterViewInit, OnDestroy, OnInit {
     const element = document.getElementById(id);
     
     if (element) {
-      gsap.to(window, {
-        duration: 1.5,     
-        scrollTo: {
-          y: element,
-          offsetY: 0,
-          autoKill: false
-        },
-        ease: 'power4.inOut'
+      element.scrollIntoView({
+        behavior: 'smooth',
+        block: 'center'
       });
-    } else {
-      console.warn(`Sekcja o id="${id}" nie została znaleziona.`);
     }
   }
 }
