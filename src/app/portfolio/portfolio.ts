@@ -6,6 +6,8 @@ import ScrollToPlugin from 'gsap/ScrollToPlugin';
 import SplitText from 'gsap/src/SplitText';
 import { Project } from '../models/project';
 import { ProjectDataService } from '../service/project-data';
+import { TechDataService } from '../service/tech-data';
+import { Tech } from '../models/tech';
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, SplitText);
 
@@ -17,42 +19,12 @@ gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, SplitText);
   styleUrls: ['./portfolio.scss']
 })
 export class PortfolioComponent implements AfterViewInit, OnDestroy, OnInit {
-  // References to DOM elements for GSAP
   @ViewChild('mainContainer', { static: true }) mainContainer!: ElementRef;
   @ViewChild('stackedSection', { static: true }) stackedSection!: ElementRef;
 
-  ctx: any; // GSAP Context for cleanup
+  ctx: any;
   projects: Project[] = [];
-
-  techRows = [
-    // Rząd 1: Backend & Core
-    [
-      { name: 'Java 21', icon: 'assets/icons/java.svg' },
-      { name: 'Spring Boot', icon: 'assets/icons/spring.svg' },
-      { name: 'Hibernate', icon: 'assets/icons/hibernate.svg' },
-      { name: 'PostgreSQL', icon: 'assets/icons/postgres.svg' },
-      { name: 'Microservices', icon: 'assets/icons/micro.svg' },
-      { name: 'Kafka', icon: 'assets/icons/kafka.svg' }
-    ],
-    // Rząd 2: Frontend
-    [
-      { name: 'Angular 17', icon: 'assets/icons/angular.svg' },
-      { name: 'TypeScript', icon: 'assets/icons/ts.svg' },
-      { name: 'RxJS', icon: 'assets/icons/rxjs.svg' },
-      { name: 'SCSS', icon: 'assets/icons/sass.svg' },
-      { name: 'Tailwind', icon: 'assets/icons/tailwind.svg' },
-      { name: 'GSAP', icon: 'assets/icons/gsap.svg' }
-    ],
-    // Rząd 3: DevOps & Tools
-    [
-      { name: 'Docker', icon: 'assets/icons/docker.svg' },
-      { name: 'Kubernetes', icon: 'assets/icons/k8s.svg' },
-      { name: 'AWS', icon: 'assets/icons/aws.svg' },
-      { name: 'Jenkins', icon: 'assets/icons/jenkins.svg' },
-      { name: 'Git', icon: 'assets/icons/git.svg' },
-      { name: 'IntelliJ', icon: 'assets/icons/intellij.svg' }
-    ]
-  ];
+  techRows: Tech[][] = [];
 
   navItems = [
     { id: 'hero', label: 'START' },
@@ -65,12 +37,16 @@ export class PortfolioComponent implements AfterViewInit, OnDestroy, OnInit {
 
   activeSectionIndex: WritableSignal<number> = signal(0);
 
-  constructor(private projectService: ProjectDataService, private cdr: ChangeDetectorRef, private ngZone: NgZone) {}
+  constructor(private projectService: ProjectDataService, private techService: TechDataService) {}
 
   ngOnInit(): void {
     this.projectService.getProjects().subscribe(data => {
       this.projects = data;
     });
+
+    this.techService.getTechs().subscribe(data => {
+      this.techRows = data;
+    })
   }
 
   ngAfterViewInit() {
@@ -214,15 +190,21 @@ export class PortfolioComponent implements AfterViewInit, OnDestroy, OnInit {
 
         this.navItems.forEach((item, index) => {
 
+          let endConfig: string | (() => string) = 'bottom center';
+          if (item.id === 'projects') { 
+              endConfig = () => `+=${(cards.length+1) * 100}%`; 
+          }
+
           ScrollTrigger.create({
               trigger: `#${item.id}`,
               start: 'top center',
-              end: 'bottom center',
+              end: endConfig,
               onToggle: (self) => {
                   if (self.isActive) {
                       this.activeSectionIndex.set(index);
                   }
-              }
+              },
+              markers: true
           });
         });
           }, this.mainContainer);
@@ -237,7 +219,7 @@ export class PortfolioComponent implements AfterViewInit, OnDestroy, OnInit {
     
     if (element) {
       element.scrollIntoView({
-        behavior: 'smooth',
+        behavior: 'auto',
         block: 'center'
       });
     }
