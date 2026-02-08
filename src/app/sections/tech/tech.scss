@@ -1,5 +1,22 @@
 @use '../../../styles/variables.scss' as *;
 
+.icon-gsap {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  vertical-align: middle;
+  background-color: currentColor; 
+  
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  -webkit-mask-size: contain;
+  mask-image: url('/gsap.svg');
+  -webkit-mask-image: url('/gsap.svg');
+}
+
 .tech-streams-wrapper {
   padding: 100px 0;
   background: $bg-dark;
@@ -55,6 +72,7 @@
   cursor: default;
   user-select: none;
   white-space: nowrap;
+  width: 10vw;
 
   &:hover {
     border-color: $hover-glow;
@@ -77,15 +95,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.3s ease;
-    
-    img { width: 60%; height: 60%; object-fit: contain; }
-    
-    .icon-char {
-      font-weight: bold;
-      color: #888;
-      font-family: monospace;
-    }
+    transition: all 0.3s ease;    
   }
 
   .tech-name {

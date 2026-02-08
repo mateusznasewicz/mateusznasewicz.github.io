@@ -9,28 +9,32 @@ export class TechDataService {
 
   private techs: Tech[][] = [
     [
-      { name: 'Java 21', icon: 'assets/icons/java.svg' },
-      { name: 'Spring Boot', icon: 'assets/icons/spring.svg' },
-      { name: 'Hibernate', icon: 'assets/icons/hibernate.svg' },
-      { name: 'PostgreSQL', icon: 'assets/icons/postgres.svg' },
-      { name: 'Microservices', icon: 'assets/icons/micro.svg' },
-      { name: 'Kafka', icon: 'assets/icons/kafka.svg' }
+      { name: 'Java 21', icon: 'devicon-java-plain' },
+      { name: 'Spring Boot', icon: 'devicon-spring-original' },
+      { name: 'PostgreSQL', icon: 'devicon-postgresql-plain' },
+      { name: 'MongoDB', icon: 'devicon-mongodb-plain' },
+      { name: 'Redis', icon: 'devicon-redis-plain'},
+      { name: 'Kafka', icon: 'devicon-apachekafka-original' },
+      { name: 'RabbitMQ', icon: 'devicon-rabbitmq-original'},
+      
     ],
     [
-      { name: 'Angular 17', icon: 'assets/icons/angular.svg' },
-      { name: 'TypeScript', icon: 'assets/icons/ts.svg' },
-      { name: 'RxJS', icon: 'assets/icons/rxjs.svg' },
-      { name: 'SCSS', icon: 'assets/icons/sass.svg' },
-      { name: 'Tailwind', icon: 'assets/icons/tailwind.svg' },
-      { name: 'GSAP', icon: 'assets/icons/gsap.svg' }
+      { name: 'Angular 17', icon: 'devicon-angular-plain' },
+      { name: 'TypeScript', icon: 'devicon-typescript-plain' },
+      { name: 'RxJS', icon: 'devicon-rxjs-plain' },
+      { name: 'SCSS', icon: 'devicon-sass-plain' },
+      { name: 'Tailwind', icon: 'devicon-tailwindcss-plain' },
+      { name: 'GSAP', icon: 'icon-gsap' },
+      { name: 'GraphQL', icon: 'devicon-graphql-plain' },
     ],
     [
-      { name: 'Docker', icon: 'assets/icons/docker.svg' },
-      { name: 'Kubernetes', icon: 'assets/icons/k8s.svg' },
-      { name: 'AWS', icon: 'assets/icons/aws.svg' },
-      { name: 'Jenkins', icon: 'assets/icons/jenkins.svg' },
-      { name: 'Git', icon: 'assets/icons/git.svg' },
-      { name: 'IntelliJ', icon: 'assets/icons/intellij.svg' }
+      { name: 'Terraform', icon: 'devicon-terraform-plain' },
+      { name: 'Docker', icon: 'devicon-docker-plain' },
+      { name: 'AWS', icon: 'devicon-amazonwebservices-plain-wordmark' },
+      { name: 'Jenkins', icon: 'devicon-jenkins-plain' },
+      { name: 'Git', icon: 'devicon-git-plain' },
+      { name: 'Grafana', icon: 'devicon-grafana-plain' },
+      { name: 'Prometheus', icon: 'devicon-prometheus-original' },
     ]
   ];
 
