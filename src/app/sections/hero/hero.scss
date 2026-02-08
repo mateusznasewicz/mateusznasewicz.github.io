@@ -1,0 +1,40 @@
+@use '../../../styles/variables.scss' as *;
+
+.hero-section {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+  background: $bg-dark;
+
+  .hero-content {
+    text-align: center;
+    
+    .hero-line {
+      overflow: hidden;
+      
+      span {
+        display: block;
+        font-size: clamp(3rem, 10vw, 12rem);
+        font-weight: 800;
+        line-height: 0.9;
+        
+        &.hollow {
+          -webkit-text-stroke: 2px $text-main;
+          color: transparent;
+        }
+      }
+    }
+  }
+
+  .hero-meta {
+    position: absolute;
+    bottom: 40px;
+    font-size: 0.9rem;
+    color: $text-dim;
+    animation: blink 2s infinite;
+  }
+}

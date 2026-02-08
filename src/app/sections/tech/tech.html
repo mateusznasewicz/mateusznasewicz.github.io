@@ -1,0 +1,31 @@
+<section class="tech-streams-wrapper" id="tech">
+    <div class="container-header">
+        <h2 class="section-title">TECHNOLOGY <span class="hollow">ECOSYSTEM</span></h2>
+    </div>
+
+    <div class="streams-container">
+        @for(row of techRows; track $index; let i = $index ){
+        <div class="tech-track" [class.reverse]="i % 2 !== 0">
+
+            @for(item of row; track $index){
+            <div class="tech-chip">
+                <div class="icon-box">
+                <span class="icon-char">{{item.name.charAt(0)}}</span>
+                </div>
+                <span class="tech-name">{{item.name}}</span>
+            </div>
+            }
+
+            @for(item of row; track $index){
+            <div class="tech-chip">
+                <div class="icon-box">
+                <span class="icon-char">{{item.name.charAt(0)}}</span>
+                </div>
+                <span class="tech-name">{{item.name}}</span>
+            </div>
+            }
+
+        </div>
+        }
+    </div>
+</section>

@@ -1,0 +1,13 @@
+<nav class="side-nav">
+  <ul>
+    @for (item of navItems; track item.id) {
+      <li [class.active]="activeSectionId() === item.id"
+          (click)="scrollToSection(item.id)">
+        
+        <span class="nav-label">{{item.label}}</span>
+        <span class="nav-dot"></span>
+      
+      </li>
+    }
+  </ul>
+</nav>

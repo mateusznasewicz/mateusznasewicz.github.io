@@ -48,6 +48,10 @@ export class ProjectDataService {
   getProjects(): Observable<Project[]> {
     return of(this.projects);
   }
+
+  getProjectsLength(): number {
+    return this.projects.length;
+  }
   
   getProjectById(id: number): Project | undefined {
     return this.projects.find(p => p.id === id);

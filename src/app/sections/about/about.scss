@@ -1,0 +1,66 @@
+@use '../../../styles/variables.scss' as *;
+
+.intro-section {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    background: $bg-dark;
+    position: relative;
+    padding: 100px 0;
+    text-align: justify;
+}
+
+.intro-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr; 
+    gap: 6rem; 
+}
+
+.intro-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    img {
+      width: 100%;
+    }
+}
+
+.intro-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+
+  .container-header {
+    font-size: 3.5rem;
+  }
+
+  .hollow {
+    -webkit-text-stroke: 1px $accent-green;
+    color: transparent;
+  }
+
+  .highlight-text {
+      font-size: 2.5rem;
+      color: rgba(255, 255, 255, 0.2);;
+      width: 100%;
+  }
+}
+
+@media (max-width: 900px) {
+    .intro-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
+    }
+    .intro-visual {
+        height: 250px;
+    }
+}
