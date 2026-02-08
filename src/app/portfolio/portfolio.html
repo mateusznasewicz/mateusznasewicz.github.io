@@ -65,7 +65,7 @@
                     
                     <div class="card-body">
                     <div class="text-content">
-                        <h3>{{p.title}}</h3> <p class="role mono">{{p.role}}</p>
+                        <a href="{{p.repoUrl}}"><h3>{{p.title}}</h3></a> <p class="role mono">{{p.role}}</p>
                         <p class="desc">{{p.description}}</p>
                         <div class="tags">
                         <span *ngFor="let t of p.techStack" class="tag mono">{{t}}</span>
@@ -117,9 +117,8 @@
                 <div class="code-text">
                     <h2 class="section-title">ENGINEERING <span class="hollow">PRECISION</span></h2>
                     <p>
-                    Pisanie kodu to dla mnie nie tylko funkcjonalność, ale i 
-                    <span class="accent">architektura</span>. Tworzę skalowalne, 
-                    samo-dokumentujące się API w oparciu o zasady REST i Clean Architecture.
+                    For me, writing code is not only about functionality, but also <span class="accent">architecture</span>.
+                    I create scalable, self-documenting APIs based on REST and Clean Architecture principles. 
                     </p>
                     <ul class="code-features mono">
                     <li>// TDD Approach</li>

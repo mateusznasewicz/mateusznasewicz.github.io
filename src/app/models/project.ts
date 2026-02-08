@@ -6,5 +6,6 @@ export interface Project {
   description: string;
   techStack: string[];
   imageUrl: string;
+  repoUrl: string;
   hexColor?: string;
 }
