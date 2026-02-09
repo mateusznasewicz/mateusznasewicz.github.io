@@ -30,7 +30,11 @@ export class Code implements AfterViewInit, OnDestroy{
         }
       });
       
-      const codeTl = gsap.timeline({
+    let mm = gsap.matchMedia();
+
+    // Desktop animation
+    mm.add("(min-width: 769px)", () => {
+      const tl = gsap.timeline({
         scrollTrigger: {
           trigger: '.code-section',
           start: 'top 60%',
@@ -38,20 +42,48 @@ export class Code implements AfterViewInit, OnDestroy{
         }
       });
 
-      codeTl
-        .from('.code-text', {
-          x: -50,
-          opacity: 0,
-          duration: 0.8,
-          ease: 'power3.out'
-        })
-        .from('.ide-wrapper', {
-          x: 100,
-          opacity: 0,
-          scale: 0.95,
-          duration: 0.8,
-          ease: 'power3.out'
-        }, "-=0.6");
+      tl.from('.code-text', {
+        x: -50,
+        opacity: 0,
+        duration: 0.8,
+        ease: 'power3.out'
+      })
+      .from('.ide-wrapper', {
+        x: 100,
+        opacity: 0,
+        scale: 0.95,
+        duration: 0.8,
+        ease: 'power3.out'
+      }, "-=0.6");
+    });
+
+    // Mobile animation
+    mm.add("(max-width: 768px)", () => {
+      gsap.from('.code-text', {
+        scrollTrigger: {
+          trigger: '.code-text',
+          start: 'top center',
+          toggleActions: 'play none none reverse'
+        },
+        x: -50,
+        opacity: 0,
+        duration: 0.8,
+        ease: 'power3.out'
+      });
+
+      gsap.from('.ide-wrapper', {
+        scrollTrigger: {
+          trigger: '.ide-wrapper',
+          start: 'top center',
+          toggleActions: 'play none none reverse'
+        },
+        x: 50,
+        opacity: 0,
+        scale: 0.95,
+        duration: 0.8,
+        ease: 'power3.out'
+      });
+    });
 
     }, this.el.nativeElement);
   }
