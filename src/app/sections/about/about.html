@@ -1,45 +1,85 @@
 <section class="intro-section" id="about">
-    <div class="ide-wraper">
-
-    
-        <div class="ide-header">
-            <div class="dots">
-            <span class="dot red"></span>
-            <span class="dot yellow"></span>
-            <span class="dot green"></span>
+    <div class="terminal-wrapper">
+        
+        <div class="terminal-header">
+            <div class="buttons">
+                <span class="btn red"></span>
+                <span class="btn yellow"></span>
+                <span class="btn green"></span>
             </div>
-            <span class="filename mono">PortfolioController.java</span>
+            <div class="title">mateusz@portfolio: ~</div>
         </div>
-<pre class="code-block">
-<code>
-<span class="keyword">@RestController</span>
-<span class="keyword">@RequestMapping</span>(<span class="string">"/api/v1"</span>)
-<span class="keyword">public class</span> <span class="class-name">PortfolioController</span> &#123;
 
-    <span class="annotation">@GetMapping</span>(<span class="string">"/about"</span>)
-    <span class="keyword">public</span> ResponseEntity&lt;DeveloperProfile&gt; <span class="function">getAboutMe</span>() &#123;
-        <span class="keyword">var</span> profile = <span class="keyword">new</span> DeveloperProfile(
-            <span class="string">"Mateusz Nasewicz"</span>,
-            <span class="string">"Full Stack Cloud Engineer"</span>,
-            <span class="string">"I architect and build scalable full-stack applications with a cloud-first mindset. "</span> +
-            <span class="string">"Specializing in Java Spring Boot and Angular, I design resilient systems using "</span> +
-            <span class="string">"microservices and event-driven architectures. I leverage AWS and Terraform to "</span> +
-            <span class="string">"ensure solutions are deployable, secure, and highly available."</span>,
-            List.of(<span class="string">"Java"</span>, <span class="string">"Spring Boot"</span>, <span class="string">"Angular"</span>, <span class="string">"AWS"</span>, <span class="string">"Terraform"</span>)
-        );
+        <div class="terminal-body">
+            
+            <div class="command-line">
+                <span class="prompt">
+                    <span class="user">mateusz@portfolio</span>:<span class="path">~</span>$
+                </span>
+                <span class="cmd-text type-neofetch">neofetch --user=mateusz_nasewicz</span>
+            </div>
 
-        <span class="keyword">return</span> ResponseEntity.ok(profile);
-    &#125;
-
-    <span class="comment">// Immutable data carrier (Java 17+)</span>
-    <span class="keyword">private record</span> <span class="class-name">DeveloperProfile</span>(
-        String name, 
-        String title, 
-        String bio, 
-        List&lt;String&gt; stack
-    ) &#123;&#125;
-&#125;
-</code>
+            <div class="neofetch-grid">
+                
+                <div class="ascii-art">
+<pre>
+       <span class="orange">.</span>
+      <span class="orange">':'</span>
+     <span class="orange">___:____</span>     <span class="orange">|"\/"|</span>
+   <span class="orange">,'        `.</span>   <span class="orange">|    |</span>
+   <span class="orange">|  O        \___/  |</span>
+ <span class="orange">~^~^~^~^~^~^~^~^~^~^~^~^~</span>
+   <span class="green">Code Brewed Strong</span>
 </pre>
-</div> 
+                </div>
+
+                <div class="fetch-info">
+                    <div class="info-header">
+                        <span class="user">mateusz</span>@<span class="host">portfolio</span>
+                    </div>
+                    <div class="separator">-----------------</div>
+                    
+                    <div class="info-row"><span class="key">Role</span>: <span class="val">Full Stack Cloud Engineer</span></div>
+                    <div class="info-row"><span class="key">Stack</span>: <span class="val">Java, Spring Boot, Angular</span></div>
+                    <div class="info-row"><span class="key">Cloud</span>: <span class="val">AWS, Terraform, Docker</span></div>
+                    <div class="info-row"><span class="key">Arch</span>: <span class="val">Microservices, Event-Driven</span></div>
+                    <div class="info-row"><span class="key">Uptime</span>: <span class="val">Always Learning</span></div>
+                    
+                    <div class="color-palette">
+                        <span class="block c-black"></span>
+                        <span class="block c-red"></span>
+                        <span class="block c-green"></span>
+                        <span class="block c-yellow"></span>
+                        <span class="block c-blue"></span>
+                        <span class="block c-magenta"></span>
+                        <span class="block c-cyan"></span>
+                        <span class="block c-white"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="command-line mt-4">
+                <span class="prompt cat-prompt">
+                    <span class="user">mateusz@portfolio</span>:<span class="path">~</span>$
+                </span>
+                <span class="cmd-text type-cat">cat about_me.txt</span>
+            </div>
+
+            <div class="bio-text">
+                I architect and build scalable full-stack applications with a <span class="highlight">cloud-first mindset</span>. 
+                Specializing in <span class="highlight">Java Spring Boot</span> and <span class="highlight">Angular</span>, 
+                I design resilient systems using microservices and event-driven architectures. 
+                I leverage <span class="highlight">AWS</span> and <span class="highlight">Terraform</span> to ensure solutions 
+                are deployable, secure, and highly available.
+            </div>
+
+            <div class="command-line cursor-prompt">
+                <span class="prompt">
+                    <span class="user">mateusz@portfolio</span>:<span class="path">~</span>$
+                </span>
+                <span class="cursor">_</span>
+            </div>
+
+        </div>
+    </div> 
 </section>

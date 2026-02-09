@@ -25,9 +25,12 @@ export class App{
   ngAfterViewInit() {
     const ctx = gsap.context(() => {
   
-      let codeSplit = new SplitText(".about-layer .string", {
-          type: "chars",
-      });
+      const neofetchSplit = new SplitText(".about-layer .type-neofetch", { type: "chars" });
+      const catSplit = new SplitText(".about-layer .type-cat", { type: "chars" });
+      const neofetchGrid = document.querySelector(".about-layer .neofetch-grid");
+      const catPrompt = document.querySelector(".about-layer .cat-prompt");
+      const bioText = document.querySelector(".about-layer .bio-text");
+      const cursorPrompt = document.querySelector(".about-layer .cursor-prompt");
 
       const tl = gsap.timeline({
         scrollTrigger: {
@@ -67,15 +70,31 @@ export class App{
         }
       })
 
-      .from(codeSplit.chars, 
-      { 
+      .from(neofetchSplit.chars, { 
         opacity: 0,
-        display: 'none',
-        stagger: 0.05,
-        duration: 0.5,
-        ease: 'power2.out',
-      }, 
-      "-=0.5");
+        stagger: 0.1,
+        duration: 2,
+        ease: 'none'
+      })
+
+      .to([neofetchGrid, catPrompt], { 
+        opacity: 1, 
+        duration: 0.5
+      })
+
+      .to({}, { duration: 1 }) 
+
+      .from(catSplit.chars, { 
+        opacity: 0,
+        stagger: 0.1,
+        duration: 2,
+        ease: 'none'
+      })
+
+      .to([bioText, cursorPrompt], { 
+        opacity: 1, 
+        duration: 0.5 
+      });
 
       }, this.el.nativeElement);
   }
