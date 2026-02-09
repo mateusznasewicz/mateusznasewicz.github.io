@@ -1,7 +1,7 @@
 @use '../../../styles/variables.scss' as *;
 
 .intro-section {
-    min-height: 80vh;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -9,7 +9,6 @@
     z-index: 2;
     background: $bg-dark;
     position: relative;
-    padding: 100px 0;
     
     opacity: 0;
     filter: blur(10px);
@@ -158,8 +157,22 @@
 }
 
 @media (max-width: 768px) {
-    .terminal-wrapper { width: 100%; border-radius: 0; }
-    
+    .terminal-wrapper { 
+        width: 90%; 
+        height: 90%;
+        border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .terminal-body {
+      font-size: 0.8rem;
+    }
+
+    .fetch-info {
+      text-align: left;
+    }
+
     .neofetch-grid {
         flex-direction: column;
         gap: 1.5rem;

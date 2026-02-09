@@ -9,6 +9,7 @@ import { Work } from './sections/work/work';
 import { gsap } from 'gsap';
 import { NavigationService } from './service/navigation';
 import { SplitText } from 'gsap/src/SplitText';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 @Component({
   selector: 'app-root',
@@ -23,6 +24,10 @@ export class App{
   private navState = inject(NavigationService);
   
   ngAfterViewInit() {
+    if (ScrollTrigger.isTouch === 1) {
+      ScrollTrigger.normalizeScroll(true);
+      ScrollTrigger.config({ ignoreMobileResize: true });
+    }
     const ctx = gsap.context(() => {
   
       const neofetchSplit = new SplitText(".about-layer .type-neofetch", { type: "chars" });
@@ -37,7 +42,8 @@ export class App{
           trigger: '.cinematic-wrapper',
           start: 'top top',
           end: '+=500%', 
-          pin: true, 
+          pin: true,
+          markers: true, 
           scrub: 1,
           refreshPriority: 1,
           id: 'intro-pin',

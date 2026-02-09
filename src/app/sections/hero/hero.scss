@@ -20,6 +20,10 @@
     background: $bg-dark;
     padding: 50px;
     border-radius: 10px;
+
+    @media (max-width: 768px) {
+        padding: 25px;
+    }
     
     .hero-line {
       overflow: hidden;
