@@ -22,7 +22,10 @@ export class TechRows implements AfterViewInit, OnDestroy, OnInit{
   constructor(private techService: TechDataService){}
   
   ngOnInit(): void {
-    this.techService.getTechs().subscribe(data => { this.techRows = data; });
+    this.techService.getTechs().subscribe(data => { 
+      this.techRows = data; 
+      this.adjustLayout();
+    });
   }
 
   ngAfterViewInit(): void {
@@ -44,7 +47,7 @@ export class TechRows implements AfterViewInit, OnDestroy, OnInit{
         const direction = i % 2 === 0 ? -1 : 1; 
         
         gsap.to(row, {
-          xPercent: 20 * direction, 
+          xPercent: 50 * direction, 
           ease: 'none',
           scrollTrigger: {
             trigger: '.tech-streams-wrapper',
@@ -61,6 +64,25 @@ export class TechRows implements AfterViewInit, OnDestroy, OnInit{
 
   ngOnDestroy(): void {
     this.ctx.revert();
+  }
+
+  private adjustLayout() {
+    const isMobile = window.innerWidth < 768;
+
+    if (isMobile) {
+      const allItems = this.techRows.flat();
+      this.techRows = this.chunkArray(allItems, 3); 
+    } else {
+      this.techRows = [...this.techRows];
+    }
+  }
+
+  private chunkArray(array: any[], size: number): any[][] {
+    const results = [];
+    for (let i = 0; i < array.length; i += size) {
+      results.push(array.slice(i, i + size));
+    }
+    return results;
   }
 
 }

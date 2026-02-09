@@ -5,6 +5,10 @@
   background-color: $bg-dark;
   padding: 100px 0 150px 0;
   z-index: 2;
+
+  @media (max-width: 768px) {
+    padding: 15px 0 15px 0;
+  }
 }
 
 .code-grid {
@@ -106,8 +110,33 @@
     grid-template-columns: 1fr;
     gap: 3rem;
     
-    .code-text { text-align: center; }
+    .code-text { 
+        text-align: center; 
+        .section-title {
+            font-size: 2.2rem; 
+        }
+    }
+
     .code-features li { justify-content: center; }
-    .ide-wrapper { transform: none; }
+    
+    .ide-wrapper { 
+        transform: none; 
+        min-width: 0;
+    }
+  }
+
+  .ide-container {
+    width: 100%;
+    
+    .ide-header {
+        padding: 6px 10px;
+        .filename { font-size: 0.75rem; }
+    }
+
+    .code-block {
+        font-size: 0.6rem;
+        padding: 0.75rem;
+        margin: 0;
+    }
   }
 }

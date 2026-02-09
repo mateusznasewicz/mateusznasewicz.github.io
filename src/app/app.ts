@@ -43,7 +43,6 @@ export class App{
           start: 'top top',
           end: '+=500%', 
           pin: true,
-          markers: true, 
           scrub: 1,
           refreshPriority: 1,
           id: 'intro-pin',
