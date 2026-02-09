@@ -25,15 +25,15 @@ export class App{
   ngAfterViewInit() {
     const ctx = gsap.context(() => {
   
-      let split = new SplitText('.about-layer .highlight-text', {
-          type: "chars, words",
+      let codeSplit = new SplitText(".about-layer .string", {
+          type: "chars",
       });
 
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: '.cinematic-wrapper',
           start: 'top top',
-          end: '+=300%', 
+          end: '+=500%', 
           pin: true, 
           scrub: 1,
           refreshPriority: 1,
@@ -52,7 +52,7 @@ export class App{
       tl.to('.hero-layer .hero-content', {
         scale: 2,
         filter: 'blur(20px)',
-        duration: 1,
+        duration: 5,
         ease: 'power2.in'
       })
 
@@ -60,18 +60,19 @@ export class App{
         scale: 1,
         filter: 'blur(0px) brightness(1)',
         opacity: 1,
-        duration: 1,
+        duration: 5,
         ease: 'power2.out',
         onComplete: () => {
             gsap.set('.about-layer', { pointerEvents: 'all' }); 
         }
       })
 
-      .from(split.words, 
+      .from(codeSplit.chars, 
       { 
         opacity: 0,
+        display: 'none',
         stagger: 0.05,
-        duration: 1,
+        duration: 0.5,
         ease: 'power2.out',
       }, 
       "-=0.5");

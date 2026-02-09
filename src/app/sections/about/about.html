@@ -1,22 +1,45 @@
 <section class="intro-section" id="about">
-    <div class="container intro-grid"> 
-        
-        <div class="intro-text">
+    <div class="ide-wraper">
 
-            <div class="container-header">
-            <h2 class="intro-text-title"><span class="hollow">ABOUT</span> ME</h2>
+    
+        <div class="ide-header">
+            <div class="dots">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
             </div>
-
-            <p class="highlight-text">I engineer robust back-end architectures and fuse them with fluid, kinetic front-end experiences. Building scalable solutions with Java Spring Boot and modern reactive frameworks.</p>
+            <span class="filename mono">PortfolioController.java</span>
         </div>
+<pre class="code-block">
+<code>
+<span class="keyword">@RestController</span>
+<span class="keyword">@RequestMapping</span>(<span class="string">"/api/v1"</span>)
+<span class="keyword">public class</span> <span class="class-name">PortfolioController</span> &#123;
 
-        <div class="intro-visual">
-            <img 
-                src="wireframe.png" 
-                alt="Futurystyczny model siatkowy twarzy" 
-                class="wireframe-model"
-            >
-        </div>
-        
-    </div>
+    <span class="annotation">@GetMapping</span>(<span class="string">"/about"</span>)
+    <span class="keyword">public</span> ResponseEntity&lt;DeveloperProfile&gt; <span class="function">getAboutMe</span>() &#123;
+        <span class="keyword">var</span> profile = <span class="keyword">new</span> DeveloperProfile(
+            <span class="string">"Mateusz Nasewicz"</span>,
+            <span class="string">"Full Stack Cloud Engineer"</span>,
+            <span class="string">"I architect and build scalable full-stack applications with a cloud-first mindset. "</span> +
+            <span class="string">"Specializing in Java Spring Boot and Angular, I design resilient systems using "</span> +
+            <span class="string">"microservices and event-driven architectures. I leverage AWS and Terraform to "</span> +
+            <span class="string">"ensure solutions are deployable, secure, and highly available."</span>,
+            List.of(<span class="string">"Java"</span>, <span class="string">"Spring Boot"</span>, <span class="string">"Angular"</span>, <span class="string">"AWS"</span>, <span class="string">"Terraform"</span>)
+        );
+
+        <span class="keyword">return</span> ResponseEntity.ok(profile);
+    &#125;
+
+    <span class="comment">// Immutable data carrier (Java 17+)</span>
+    <span class="keyword">private record</span> <span class="class-name">DeveloperProfile</span>(
+        String name, 
+        String title, 
+        String bio, 
+        List&lt;String&gt; stack
+    ) &#123;&#125;
+&#125;
+</code>
+</pre>
+</div> 
 </section>
