@@ -1,0 +1,14 @@
+.cinematic-wrapper {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #000;
+}
+
+.layer {
+  grid-area: 1 / 1;
+  width: 100%;
+  height: 100%;
+}

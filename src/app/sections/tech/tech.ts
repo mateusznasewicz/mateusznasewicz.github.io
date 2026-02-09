@@ -3,7 +3,7 @@ import { gsap } from 'gsap';
 import { TechDataService } from '../../service/tech-data';
 import { Tech } from '../../models/tech';
 import { NavigationService } from '../../service/navigation';
-import { ScrollTrigger } from 'gsap/src/ScrollTrigger';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 
 @Component({

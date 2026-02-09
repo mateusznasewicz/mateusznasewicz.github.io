@@ -3,7 +3,7 @@ import { ProjectDataService } from '../../service/project-data';
 import { Project } from '../../models/project';
 import { gsap } from 'gsap';
 import { NavigationService } from '../../service/navigation';
-import { ScrollTrigger } from 'gsap/src/ScrollTrigger';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 
 @Component({
@@ -56,6 +56,7 @@ export class Work implements AfterViewInit, OnDestroy, OnInit{
           end: () => `+=${cards.length * 100}%`,
           pin: true,
           scrub: 1,
+          refreshPriority: 0
         }
       });
 

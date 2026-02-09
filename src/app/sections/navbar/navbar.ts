@@ -1,5 +1,7 @@
 import { Component, inject, signal, WritableSignal } from '@angular/core';
 import { NavigationService } from '../../service/navigation';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 @Component({
   selector: 'app-navbar',
@@ -26,15 +28,33 @@ export class Navbar {
     this.ctx.revert();
   }
 
-  scrollToSection(id: string){
-    const element = document.getElementById(id);
+  scrollToSection(sectionId: string){
+    const introTrigger = ScrollTrigger.getById('intro-pin');
+
+    if (sectionId === 'hero') {
+      if (introTrigger) {
+        gsap.to(window, { scrollTo: introTrigger.start, duration: 0.2, ease: 'power2.inOut' });
+      }
+    } 
     
-    if (element) {
-      element.scrollIntoView({
-        behavior: 'auto',
-        block: 'center'
+    else if (sectionId === 'about') {
+      if (introTrigger) {
+        gsap.to(window, { 
+          scrollTo: introTrigger.end, 
+          duration: 0.2, 
+          ease: 'power2.inOut', 
+          onComplete: () => { this.navigation.setActiveSection(sectionId);} });
+      }
+    } 
+    
+    else {
+      gsap.to(window, { 
+        scrollTo: { y: `#${sectionId}`, offsetY: 0 }, 
+        duration: 0.2, 
+        ease: 'power2.inOut' 
       });
     }
+
   }
   
 }

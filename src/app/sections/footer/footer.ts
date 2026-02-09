@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, OnDestroy, inject, ElementRef } from '@angular/core';
 import { NavigationService } from '../../service/navigation';
-import { ScrollTrigger } from 'gsap/src/ScrollTrigger';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { gsap } from 'gsap';
 
 
