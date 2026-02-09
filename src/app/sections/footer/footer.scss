@@ -13,7 +13,7 @@
   width: 100%;
   height: 60dvh;
   background: #000;
-  z-index: -1;
+  z-index: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -65,10 +65,8 @@
 
 @media (max-width: 768px) {
   .curtain-footer {
-    // height: 50dvh; // Możesz spróbować zmniejszyć wysokość, jeśli chcesz
     
     .footer-content {
-      // Zabezpieczenie przed ucinaniem
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -76,7 +74,7 @@
       
       h2 { 
         font-size: 2.5rem; 
-        margin-bottom: 1.5rem; // ZMNIEJSZONO z 2rem
+        margin-bottom: 1.5rem;
       }
       
       .cta-button {
@@ -85,12 +83,10 @@
       }
       
       .socials {
-        margin-top: 1.5rem; // ZMNIEJSZONO DRATYCZNIE z 4rem/2.5rem
+        margin-top: 1.5rem;
         gap: 1.5rem;
         font-size: 0.85rem;
         flex-wrap: wrap;
-        
-        // Fix: upewnij się, że linki są blokowe/inline-block
         a { display: inline-block; padding: 5px; }
       }
     }
