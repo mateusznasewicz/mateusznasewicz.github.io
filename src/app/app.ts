@@ -77,8 +77,8 @@ export class App{
 
       .from(neofetchSplit.chars, { 
         opacity: 0,
-        stagger: 0.1,
-        duration: 2,
+        stagger: 0.2,
+        duration: 0.01,
         ease: 'none'
       })
 
@@ -91,8 +91,8 @@ export class App{
 
       .from(catSplit.chars, { 
         opacity: 0,
-        stagger: 0.1,
-        duration: 2,
+        stagger: 0.2,
+        duration: 0.01,
         ease: 'none'
       })
 
