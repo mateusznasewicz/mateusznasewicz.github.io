@@ -2,7 +2,7 @@
 
 .stacked-wrapper {
   width: 100%;
-  height: 100vh;
+  height: 100dvh;
   background: $bg-dark;
   position: relative;
   z-index: 2;
@@ -10,18 +10,19 @@
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  padding: 1rem;
 }
 
 .cards-container {
-  width: 90%;
-  max-width: 1100px;
-  height: 80vh;
+  width: 100%;
+  max-width: 1200px;
+  height: 100%;
   position: relative;
 }
 
 .project-card {
   position: absolute;
-  top: 0;
+  bottom: 0;
   left: 0;
   width: 100%;
   height: 100%;
@@ -35,7 +36,7 @@
     height: 100%;
     display: flex;
     flex-direction: column;
-    padding: 3rem;
+    padding: 2rem;
   }
 
   .card-header {
@@ -43,20 +44,17 @@
     justify-content: space-between;
     margin-bottom: 2rem;
     color: $text-dim;
-    font-size: 1.2rem;
+    font-size: clamp(1rem, 1vw + 0.4rem, 1.2rem);
     border-bottom: 1px solid rgba(255,255,255,0.1);
     padding-bottom: 1rem;
-  }
-
-  @media (max-width: 768px) {
-    .card-header { margin-bottom: 1rem; }
-    .card-inner { padding: 1.5rem; }
   }
 
   .card-body {
     display: flex;
     gap: 3rem;
-    height: 100%;
+    flex: 1;
+    height: auto;
+    min-height: 0;
     
     .text-content {
       flex: 1;
@@ -64,44 +62,77 @@
       flex-direction: column;
       justify-content: center;
       
-      h3 { font-size: 3.5rem; margin: 0 0 1rem 0; line-height: 1; }
-      .role { color: $accent-blue; margin-bottom: 1.5rem; }
-      .desc { font-size: 1.1rem; color: #ccc; line-height: 1.6; margin-bottom: 2rem; }
+      h3 { margin: 0 0 1rem 0; line-height: 1; font-size: clamp(1.8rem, 5vw, 3.5rem);}
+      .role { color: $accent-blue; margin-bottom: 1.5rem; font-size: clamp(0.8rem, 1.2vw, 1.2rem); }
+      .desc { color: #ccc; line-height: 1.6; margin-bottom: 2rem; font-size: clamp(0.9rem, 1.5vw, 1.4rem);}
       .tags {
         display: flex; gap: 10px; flex-wrap: wrap;
         .tag {
-          font-size: 0.8rem;
+          font-size: clamp(0.6rem, 1vw, 0.8rem);
           padding: 5px 12px;
           border: 1px solid #444;
           border-radius: 20px;
           color: $text-dim;
         }
       }
-      @media (max-width: 768px) {
-        h3 { font-size: 1.5rem; margin-bottom: 1rem;}
-        .role { font-size: 0.8rem; margin-bottom: 1rem;}
-        .desc { font-size: 0.8rem; margin-bottom: 1rem }
-      }
     }
 
     .visual-content {
-      flex: 1;
-      border-radius: 16px;
-      overflow: hidden;
+      flex: 1.2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 0;
+      height: 100%;
 
       img {
-        width: 100%;
-        height: 90%;
+        max-width: 100%;
+        max-height: 100%;
+        width: auto;
+        height: auto;
+        aspect-ratio: 27/40;
         object-fit: cover;
-        object-position: bottom ;
-        border-radius: 10px;
+        object-position: center ;
+        border-radius: 16px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
       }
-    }
-
-    @media (max-width: 768px) {
-    .visual-content { display: none; }
-    .text-content {justify-content: left;}
     }
   }
 }
+
+@media (max-width: 1024px) {
+  .project-card {
+    .card-body {
+      gap: 2rem;
+      
+    }
+    .visual-content {
+      flex: 0.8; 
+    }
+  }
+}
+
+
+@media (max-width: 768px) {
+  .project-card {
+    .card-inner {
+      padding: 1.5rem;
+
+      .card-header {
+        margin-bottom: 1rem;
+      }
+
+      .card-body{
+        .visual-content {
+          display: none;
+        }
+        
+        .text-content {
+          .desc {  line-height: 1.4; }
+        }
+      }
+    }
+  }
+}
+
 

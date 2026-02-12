@@ -1,5 +1,9 @@
 @use 'styles/variables.scss' as *;
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   display: block;
   background-color: $bg-dark;
@@ -9,7 +13,7 @@ body {
 }
 
 .mono { font-family: $font-mono; letter-spacing: 1px; }
-.container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+.container { max-width: 1200px; margin: 0 auto; }
 a { color: inherit; text-decoration: none; }
 
 @keyframes blink { 50% { opacity: 0; } }

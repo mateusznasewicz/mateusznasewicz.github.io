@@ -44,13 +44,13 @@ export class TechRows implements AfterViewInit, OnDestroy, OnInit{
 
       const rows = gsap.utils.toArray('.tech-track');
       rows.forEach((row: any, i) => {
-        const direction = i % 2 === 0 ? -1 : 1; 
+        const direction = i % 2 === 0 ? -1 : 1;
         
         gsap.to(row, {
-          xPercent: 50 * direction, 
+          xPercent: 25 * direction, 
           ease: 'none',
           scrollTrigger: {
-            trigger: '.tech-streams-wrapper',
+            trigger: row,
             start: 'top bottom', 
             end: 'bottom top',   
             scrub: 1             
@@ -67,14 +67,18 @@ export class TechRows implements AfterViewInit, OnDestroy, OnInit{
   }
 
   private adjustLayout() {
-    const isMobile = window.innerWidth < 768;
+    const width = window.innerWidth;
+    const allItems = this.techRows.flat();
+    
+    let itemsPerRow: number;
 
-    if (isMobile) {
-      const allItems = this.techRows.flat();
-      this.techRows = this.chunkArray(allItems, 3); 
+    if (width < 1024) {
+      itemsPerRow = 3;
     } else {
-      this.techRows = [...this.techRows];
+      itemsPerRow = 7;
     }
+
+    this.techRows = this.chunkArray(allItems, itemsPerRow);
   }
 
   private chunkArray(array: any[], size: number): any[][] {

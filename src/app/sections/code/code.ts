@@ -33,7 +33,7 @@ export class Code implements AfterViewInit, OnDestroy{
     let mm = gsap.matchMedia();
 
     // Desktop animation
-    mm.add("(min-width: 769px)", () => {
+    mm.add("(min-width: 965px)", () => {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: '.code-section',
@@ -58,7 +58,7 @@ export class Code implements AfterViewInit, OnDestroy{
     });
 
     // Mobile animation
-    mm.add("(max-width: 768px)", () => {
+    mm.add("(max-width: 964px)", () => {
       gsap.from('.code-text', {
         scrollTrigger: {
           trigger: '.code-text',

@@ -9,15 +9,17 @@
     z-index: 2;
     background: $bg-dark;
     position: relative;
-    
+    padding: 1rem;
+
     opacity: 0;
     filter: blur(10px);
     scale: 2;
 }
 
 .terminal-wrapper {
-    width: 90%;
-    max-width: 800px;
+    width: 100%;
+    max-width: 1200px;
+    height: auto;
     font-family: 'Fira Code', 'Consolas', monospace;
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
     border-radius: 8px;
@@ -48,9 +50,10 @@
 }
 
 .terminal-body {
+    height: auto;
     padding: 2rem;
     color: #c9d1d9;
-    font-size: 0.95rem;
+    font-size: clamp(0.7rem, 1vw + 0.4rem, 1.5rem);
     line-height: 1.6;
 }
 
@@ -158,15 +161,9 @@
 
 @media (max-width: 768px) {
     .terminal-wrapper { 
-        width: 90%; 
-        height: 90%;
         border-radius: 20px;
         display: flex;
         flex-direction: column;
-    }
-
-    .terminal-body {
-      font-size: 0.7rem;
     }
 
     .fetch-info {
