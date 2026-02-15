@@ -69,7 +69,6 @@
   border-radius: 12px;
   border: 1px solid #333;
   overflow: hidden;
-  // max-width: 800px;
   margin: 0 auto;
   box-shadow: 0 20px 50px rgba(0,0,0,0.5);
 
@@ -91,11 +90,14 @@
 
   .code-block {
     padding: 2rem;
-    font-family: 'Fira Code', monospace;
     font-size: 1rem;
     color: #d4d4d4;
     line-height: 1.6;
     overflow-x: auto;
+
+    code {
+      font-family: $font-mono;
+    }
     
     .keyword { color: $accent-purple; }
     .string { color: #ce9178; }
