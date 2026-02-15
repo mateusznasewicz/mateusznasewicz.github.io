@@ -1,6 +1,5 @@
 import { AfterViewInit, Component, OnDestroy, inject, ElementRef } from '@angular/core';
 import { gsap } from 'gsap'
-import { NavigationService } from '../../service/navigation';
 
 @Component({
   selector: 'app-hero',
@@ -10,7 +9,6 @@ import { NavigationService } from '../../service/navigation';
 })
 export class Hero implements AfterViewInit, OnDestroy{
 
-  private navState = inject(NavigationService);
   private el = inject(ElementRef);
   ctx!: gsap.Context;
 
@@ -19,16 +17,32 @@ export class Hero implements AfterViewInit, OnDestroy{
     this.ctx = gsap.context(() => {
       
       const entryTl = gsap.timeline();
-      entryTl.from('.hero-line span', {
-        y: 150,
+      gsap.set('.hero-content', { transformOrigin: 'center' });
+
+      entryTl.from('.hero-content', {
+        scaleX: 0,
+        duration: 0.8,
+        ease: 'power4.inOut'
+      })
+      .from('.hero-content', {
+        scaleY: 0.02,
+        duration: 0.6,
+        ease: 'power2.out'
+      })
+      .from('.hero-line span', {
+        scale: 1.5,
         opacity: 0,
-        skewY: 10,
-        duration: 1.2,
-        stagger: 0.1,
-        ease: 'power4.out'
-      });
+        filter: 'blur(10px)',
+        duration: 0.8,
+        stagger: {
+          amount: 0.3,
+          from: "center"
+        },
+        ease: 'back.out(1.7)'
+      }, "-=0.4");
 
     }, this.el.nativeElement);
+
   }
 
   ngOnDestroy() {
