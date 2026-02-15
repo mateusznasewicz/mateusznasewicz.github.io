@@ -17,6 +17,7 @@
 
   .hero-content {
     text-align: center;
+    visibility: hidden;
     background: $bg-dark;
     padding: 50px;
     border-radius: 10px;
@@ -27,7 +28,6 @@
     
     .hero-line {
       overflow: hidden;
-      // padding-bottom: 2em;
       
       span {
         display: block;
@@ -45,6 +45,7 @@
 
   .hero-meta {
     position: absolute;
+    visibility: hidden;
     bottom: 40px;
     font-size: 0.9rem;
     color: $text-dim;

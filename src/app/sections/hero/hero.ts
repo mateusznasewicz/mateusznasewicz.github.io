@@ -13,11 +13,16 @@ export class Hero implements AfterViewInit, OnDestroy{
   ctx!: gsap.Context;
 
   ngAfterViewInit(): void {
-    
+    window.addEventListener('load', () => {
+      this.heroAnimation();
+    });
+  }
+
+  heroAnimation(): void {
     this.ctx = gsap.context(() => {
       
       const entryTl = gsap.timeline();
-      gsap.set('.hero-content', { transformOrigin: 'center' });
+      gsap.set('.hero-content', { transformOrigin: 'center', visibility: 'visible' });
 
       entryTl.from('.hero-content', {
         scaleX: 0,
@@ -38,11 +43,11 @@ export class Hero implements AfterViewInit, OnDestroy{
           amount: 0.3,
           from: "center"
         },
-        ease: 'back.out(1.7)'
+        ease: 'back.out(1.7)',
+        onComplete: () => { gsap.set('.hero-meta', { visibility: 'visible' }) }
       }, "-=0.4");
 
     }, this.el.nativeElement);
-
   }
 
   ngOnDestroy() {
