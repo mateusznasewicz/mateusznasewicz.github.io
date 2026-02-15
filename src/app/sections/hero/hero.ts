@@ -14,7 +14,6 @@ export class Hero implements AfterViewInit, OnDestroy {
   introComplete = output<void>();
 
   ngAfterViewInit(): void {
-    window.scroll(0,0);
     if (document.readyState === 'complete') {
       this.heroAnimation();
     } else {

@@ -17,11 +17,18 @@ import { ScrollTrigger } from 'gsap/src/ScrollTrigger';
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
-export class App {
+export class App implements OnInit{
   protected readonly title = signal('personal-website');
 
   private el = inject(ElementRef);
   private navState = inject(NavigationService);
+
+  ngOnInit(): void {
+    if('scrollRestoration' in history){
+      history.scrollRestoration = 'manual';
+    }
+    window.scroll(0,0);
+  }
 
   onHeroFinished() {
     this.initMainScrollAnimations();
