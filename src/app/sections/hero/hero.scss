@@ -1,10 +1,5 @@
 @use '../../../styles/variables.scss' as *;
 
-:host {
-  display: block;
-  width: 100%;
-}
-
 .hero-section {
   height: 100dvh;
   display: flex;

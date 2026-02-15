@@ -1,4 +1,4 @@
-import { Component, signal, inject, ElementRef } from '@angular/core';
+import { Component, signal, inject, ElementRef, OnInit, HostListener } from '@angular/core';
 import { Hero } from './sections/hero/hero';
 import { About } from './sections/about/about';
 import { Code } from './sections/code/code';
@@ -9,7 +9,7 @@ import { Work } from './sections/work/work';
 import { gsap } from 'gsap';
 import { NavigationService } from './service/navigation';
 import { SplitText } from 'gsap/src/SplitText';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { ScrollTrigger } from 'gsap/src/ScrollTrigger';
 
 @Component({
   selector: 'app-root',
@@ -17,13 +17,17 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
-export class App{
+export class App {
   protected readonly title = signal('personal-website');
 
   private el = inject(ElementRef);
   private navState = inject(NavigationService);
+
+  onHeroFinished() {
+    this.initMainScrollAnimations();
+  }
   
-  ngAfterViewInit() {
+  initMainScrollAnimations() {
     if (ScrollTrigger.isTouch === 1) {
       ScrollTrigger.normalizeScroll(true);
       ScrollTrigger.config({ ignoreMobileResize: true });

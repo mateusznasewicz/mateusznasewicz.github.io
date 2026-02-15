@@ -1,7 +1,7 @@
 <app-navbar></app-navbar>
 <div>
     <div class="cinematic-wrapper">
-        <app-hero class="layer hero-layer"></app-hero>
+        <app-hero (introComplete)="onHeroFinished()" class="layer hero-layer"></app-hero>
         <app-about class="layer about-layer"></app-about>
     </div>
     <app-work></app-work>

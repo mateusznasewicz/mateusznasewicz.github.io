@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnDestroy, inject, ElementRef } from '@angular/core';
+import { AfterViewInit, Component, OnDestroy, inject, ElementRef, output } from '@angular/core';
 import { gsap } from 'gsap'
 
 @Component({
@@ -7,20 +7,31 @@ import { gsap } from 'gsap'
   templateUrl: './hero.html',
   styleUrl: './hero.scss',
 })
-export class Hero implements AfterViewInit, OnDestroy{
+export class Hero implements AfterViewInit, OnDestroy {
 
   private el = inject(ElementRef);
   ctx!: gsap.Context;
+  introComplete = output<void>();
 
   ngAfterViewInit(): void {
-    window.addEventListener('load', () => {
+    window.scroll(0,0);
+    if (document.readyState === 'complete') {
       this.heroAnimation();
-    });
+    } else {
+      window.addEventListener('load', () => {
+        this.heroAnimation();
+      });
+    }
+  }
+
+  setVisibility(): void {
+    gsap.set('.hero-content', { visibility: 'visible' });
+    gsap.set('.hero-meta', { visibility: 'visible' }) 
   }
 
   heroAnimation(): void {
     this.ctx = gsap.context(() => {
-      
+      document.body.classList.add('no-scroll');
       const entryTl = gsap.timeline();
       gsap.set('.hero-content', { transformOrigin: 'center', visibility: 'visible' });
 
@@ -44,7 +55,11 @@ export class Hero implements AfterViewInit, OnDestroy{
           from: "center"
         },
         ease: 'back.out(1.7)',
-        onComplete: () => { gsap.set('.hero-meta', { visibility: 'visible' }) }
+        onComplete: () => { 
+          gsap.set('.hero-meta', { visibility: 'visible' }) 
+          document.body.classList.remove('no-scroll');
+          this.introComplete.emit();
+        }
       }, "-=0.4");
 
     }, this.el.nativeElement);
