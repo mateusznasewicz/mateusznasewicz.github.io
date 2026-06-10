@@ -22,32 +22,3 @@ Projekt jest zoptymalizowany pod kątem wydajności i efektów wizualnych:
 * **GSAP: Curtain Footer Reveal:** Stopka jest płynnie odsłaniana jako "kurtyna" pod główną warstwą treści.
 * **Clean Architecture:** Dedykowana sekcja "Code/IDE" przedstawiająca moją filozofię pisania czystego, architektonicznie solidnego kodu.
 * **Angular Signals:** Wykorzystanie Signals do zarządzania aktualizacjami z GSAP, optymalizujące wydajność i omijające `NgZone`.
-
-## 💻 Tech Stack
-
-| Kategoria | Technologie |
-| :--- | :--- |
-| **Backend Core** | Java 21, Spring Boot, Hibernate, PostgreSQL |
-| **Frontend/UI** | Angular 17, TypeScript, SCSS, GSAP |
-| **DevOps/Tools** | Docker, AWS, Kafka, Git |
-
-## ⚙️ Uruchomienie Lokalnie
-
-### Wymagania
-
-1.  Node.js (LTS version)
-2.  Angular CLI (`npm install -g @angular/cli`)
-
-### Instalacja i Uruchomienie
-
-```bash
-# 1. Sklonuj repozytorium
-git clone [https://github.com/mateusznasewicz/mateusznasewicz.github.io.git](https://github.com/mateusznasewicz/mateusznasewicz.github.io.git)
-cd mateusznasewicz.github.io
-
-# 2. Zainstaluj zależności
-npm install
-
-# 3. Uruchom serwer developerski
-ng serve
-```
