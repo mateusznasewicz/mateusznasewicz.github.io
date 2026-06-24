@@ -11,25 +11,25 @@
                 </div>
                 
                 <div class="card-body">
-                <div class="text-content">
-                    <a href="{{p.repoUrl}}" target="_blank"><h3>{{p.title}}</h3></a> <p class="role mono">{{p.role}}</p>
-                    <p class="desc">{{p.description}}</p>
-                    <div class="tags">
-                    @for(t of p.techStack; track $index){
-                    <span class="tag mono">{{t}}</span>
-                    }
+                    <div class="text-content">
+                        <a href="{{p.repoUrl}}" target="_blank"><h3>{{p.title}}</h3></a> <p class="role mono">{{p.role}}</p>
+                        <p class="desc">{{p.description}}</p>
+                        <div class="tags">
+                        @for(t of p.techStack; track $index){
+                        <span class="tag mono">{{t}}</span>
+                        }
+                        </div>
                     </div>
-                </div>
-                
-                <div class="visual-content">
-                    @if(p.videoUrl){
-                        <video autoplay loop muted playsinline [poster]="p.imageUrl">
-                            <source [src]="p.videoUrl" type="video/mp4">
-                            Twoja przeglądarka nie obsługuje formatu wideo.
-                        </video>
-                    } @else {
-                        <img [src]="p.imageUrl" alt="{{p.title}} Visual">
-                    }
+                    
+                    <div class="visual-content">
+                        @if(p.videoUrl){
+                            <video autoplay loop muted playsinline [poster]="p.imageUrl">
+                                <source [src]="p.videoUrl" type="video/mp4">
+                                Twoja przeglądarka nie obsługuje formatu wideo.
+                            </video>
+                        } @else {
+                            <img [src]="p.imageUrl" alt="{{p.title}} Visual">
+                        }
                 </div>
                 </div>
             </div>
