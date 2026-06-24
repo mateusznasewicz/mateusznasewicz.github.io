@@ -46,7 +46,7 @@ export class ProjectDataService {
       role: 'System Architect & Backend Lead',
       year: '2025',
       description: 'Cloud-native, event-driven microservices architecture for managing urban bike-sharing operations at scale. Designed with enterprise-grade reliability, this system orchestrates fleet management, rental operations, and payment processing across distributed infrastructure.',
-      techStack: ['Java', 'Spring Boot', 'Kafka', 'Redis', 'MQTT', 'Docker', 'Jenkins'],
+      techStack: ['Java', 'Spring Boot', 'Kafka', 'Redis', 'MQTT', 'Docker', 'AWS'],
       imageUrl: 'city-bike-system.png',
       repoUrl: 'https://github.com/mateusznasewicz/city-bike-system',
       hexColor: '#22c55e'
