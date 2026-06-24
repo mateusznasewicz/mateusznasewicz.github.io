@@ -13,8 +13,7 @@ export class ProjectDataService {
       title: 'Dopamine Delivery',
       role: 'Full-stack & DevOps Developer',
       year: '2026',
-      description: 'Real-time vehicle tracking and delivery platform featuring a live 3D map interface driven by secured WebSockets for telemetry streaming. Built with a robust backend integrating specialized third-party APIs for automated routing and geospatial address geocoding, backed by optimized NoSQL spatial querying and provisioned via automated CI/CD infrastructure.',
-      techStack: ['Java', 'Spring Boot', 'Angular', 'WebSockets', 'MongoDB', 'Terraform', 'Stripe'],
+      description: 'Food delivery platform featuring a live 3D tracking map. Built with a robust backend integrating third-party APIs for routing and geocoding, backed by optimized MongoDB spatial queries and deployed via automated CI/CD pipelines.',      techStack: ['Java', 'Spring Boot', 'Angular', 'WebSockets', 'MongoDB', 'Terraform', 'Stripe'],
       videoUrl: 'dopamine-delivery.mp4',
       repoUrl: 'https://dopamine-delivery.mateusznasewicz.dev',
       hexColor: '#f97316'
@@ -24,7 +23,7 @@ export class ProjectDataService {
       title: 'Culinary Recipe Manager',
       role: 'Backend Lead',
       year: '2025',
-      description: 'Full-stack recipe management platform built with a CQRS (Command Query Responsibility Segregation) architecture. The system separates read and write operations across dedicated microservices that communicate asynchronously via RabbitMQ, fronted by a reactive API gateway handling JWT authentication and role-based access control..',
+      description: 'Full-stack recipe management platform built with a CQRS architecture. The system separates read and write operations across dedicated microservices that communicate asynchronously via RabbitMQ, fronted by a reactive API gateway handling JWT authentication and role-based access control.',
       techStack: ['Java', 'Spring Boot', 'Angular', 'RabbitMQ', 'PostgreSQL', 'Docker'],
       imageUrl: 'culinary-recipe-manager.png',
       repoUrl: 'https://github.com/mateusznasewicz/culinary-recipe-manager',
