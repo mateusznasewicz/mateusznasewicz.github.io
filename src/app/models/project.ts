@@ -5,7 +5,8 @@ export interface Project {
   year: string;
   description: string;
   techStack: string[];
-  imageUrl: string;
+  imageUrl?: string;
+  videoUrl?: string;
   repoUrl: string;
   hexColor?: string;
 }

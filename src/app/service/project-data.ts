@@ -10,6 +10,17 @@ export class ProjectDataService {
   private projects: Project[] = [
     {
       id: 1,
+      title: 'Dopamine Delivery',
+      role: 'Full-stack & DevOps Developer',
+      year: '2026',
+      description: 'Real-time vehicle tracking and delivery platform featuring a live 3D map interface driven by secured WebSockets for telemetry streaming. Built with a robust backend integrating specialized third-party APIs for automated routing and geospatial address geocoding, backed by optimized NoSQL spatial querying and provisioned via automated CI/CD infrastructure.',
+      techStack: ['Java', 'Spring Boot', 'Angular', 'WebSockets', 'MongoDB', 'Terraform', 'Stripe'],
+      videoUrl: 'dopamine-delivery.mp4',
+      repoUrl: 'https://dopamine-delivery.mateusznasewicz.dev',
+      hexColor: '#f97316'
+    },
+    {
+      id: 2,
       title: 'Culinary Recipe Manager',
       role: 'Backend Lead',
       year: '2025',
@@ -20,7 +31,7 @@ export class ProjectDataService {
       hexColor: '#3b82f6'
     },
     {
-      id: 2,
+      id: 3,
       title: 'Cloud Native Task Manager',
       role: 'Fullstack Cloud Engineer',
       year: '2025',
@@ -31,7 +42,7 @@ export class ProjectDataService {
       hexColor: '#a855f7'
     },
     {
-      id: 3,
+      id: 4,
       title: 'City Bike System',
       role: 'System Architect & Backend Lead',
       year: '2025',
