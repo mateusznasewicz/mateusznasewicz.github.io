@@ -35,7 +35,7 @@ export class ProjectDataService {
       title: 'Cloud Native Task Manager',
       role: 'Fullstack Cloud Engineer',
       year: '2025',
-      description: 'Scalable cloud-native architecture based on AWS ECS Fargate, utilizing Terraform for full infrastructure automation (IaC). The system ensures High Availability (Multi-AZ) via Application Load Balancer and implements zero-trust security with AWS Cognito integration and private VPC subnets. The solution is complemented by an automated CI/CD pipeline using Amazon ECR and serverless data storage on Amazon S3.',
+      description: 'Cloud-native architecture on AWS ECS Fargate with Terraform IaC, multi availability zones via ALB, zero-trust security with Cognito & private VPC, CI/CD pipeline with ECR, and serverless storage on S3.',
       techStack: ['Java', 'Spring Boot', 'Angular', 'AWS', 'Terraform', 'Docker'],
       imageUrl: 'cloud-native-task-manager.png',
       repoUrl: 'https://github.com/mateusznasewicz/Cloud-Native-Task-Management-System',
